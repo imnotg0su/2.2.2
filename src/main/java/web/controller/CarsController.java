@@ -11,10 +11,10 @@ import web.Service.CarService;
 public class CarsController {
 
     @Autowired
-    CarService carService;
+    private CarService carService;
 
     @GetMapping(value = "/cars")
-    public String printWelcome(@RequestParam("count") int count, Model model) {
+    public String printWelcome(@RequestParam int count, Model model) {
         model.addAttribute("showMeCars", carService.getAllCars(count));
 
         return "cars";
